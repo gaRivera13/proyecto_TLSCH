@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>base</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="/">home</a>
+            </li>
+            <li>
+                <a href="/admin_usuarios">administrar usuarios</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li>
+                <a href="/logout">logout</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="/iniciar_sesion">Iniciar sesion</a>
+            </li>
+            <li>
+                <a href="/registro">registro</a>
+            </li>
+            {% endif %}
+
+        </ul>
+    </nav>
+    {{% block content %}}
+    {{% endblock %}}
+</body>
+</html>
